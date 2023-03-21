@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { tap } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +32,8 @@ export class PokeApiService {
 
   public apiGetPokemon( url: string ):Observable<any>{
     return this.http.get<any>( url ).pipe(
-      tap(
-        res => {
-          res.map((res: any) => res);
-        }
+      map(
+        res => res
       )
     )    
   }
