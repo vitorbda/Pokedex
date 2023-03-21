@@ -12,6 +12,6 @@ export class PokeSearchComponent {
   constructor(){}
 
   public search(value: string){
-    console.log(value);
+    this.emmitSearch.emit(value);
   }
 }
